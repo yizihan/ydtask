@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>praise</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.wrapper {
+			padding-top: 150px;
+		}
+		.hand {
+			margin: 0 auto;
+			position: relative;
+			z-index: 0;
+			width: 280px;
+			height: 326px;
+			background-color: #f9c6ac;
+			border:1px solid #c48a6f;
+			border-radius: 15px 0 0 15px;
+		}
+		.arm {
+			position: absolute;
+			top: 50px;
+			left: -200px;
+			z-index: 5;
+			width: 220px;
+			height: 242px;
+			background-color: #f9c6ac;
+			border-top: 1px solid #c48a6f;
+		}
+		.hand .finger {
+			display: block;
+			position: absolute;
+			z-index: 10;
+			right: -40px;
+			width: 90px;
+			height: 80px;
+			background-color: #f9c6ac;
+			border-top: 1px solid #c48a6f;
+			border-right: 1px solid #c48a6f;
+			border-bottom: 1px solid #c48a6f;
+			border-radius: 0 40px 40px 0;
+		}
+		.hand .finger:nth-of-type(1) {
+			top: -1px;
+		}
+		.hand .finger:nth-of-type(2) {
+			top: 81px;
+		}
+		.hand .finger:nth-of-type(3) {
+			top: 163px;
+		}
+		.hand .finger:nth-of-type(4) {
+			top: 245px;
+		}
+		.hand .finger.thumb {
+			width: 160px;
+			left: 57px;
+			top: -23px;
+			transform-origin: left;
+			border-bottom: none;
+			transform: rotate(-65deg);
+		}
+		.hand .finger:before {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 75%; 
+			height: 70px;
+			top: 5%;
+			right: 4px;
+			border-top-right-radius: 75px;	
+			border-bottom-right-radius: 75px;	
+			background: linear-gradient(to left, rgba(255, 255, 255, .6) 0%, rgba(255, 255, 255, 0) 100%);
+		}
+		.hand .finger.thumb:before {
+			width: 45%;
+		}
+		.hand .finger.thumb:after {
+	    content: "";
+			display: block;
+			position: absolute;
+			width: 30%; 
+			height: 70px;
+			top: 5%;
+			right: 78px;
+			border-top-right-radius: 75px;	
+			border-bottom-right-radius: 75px;	
+			background: linear-gradient(to left, rgba(185, 81, 27, 0.2) 0%, rgba(185, 81, 27, 0) 100%);
+		}
+		.num {
+      display: block !important;
+      -webkit-animation: neon2 1.5s ease-in-out alternate;
+      animation: neon2 1.5s ease-in-out alternate;
+      -webkit-animation-iteration-count: 1;
+      /* Safari 和 Chrome */
+      font-size: 40px;
+      color: #FF1177;
+      position: absolute;
+      right: 10%;
+      top: 10%;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    @-webkit-keyframes neon2 {
+      from {
+        opacity: 0;
+        -webkit-transform: translateY(-20px);
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+      }
+      to {
+        opacity: 1;
+        -webkit-transform: translateY(0) text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+      }
+    }
+		
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="hand" id="hand">
+			<div class="finger"></div>
+			<div class="finger"></div>
+			<div class="finger"></div>
+			<div class="finger"></div>
+			<div class="finger thumb"></div>
+			<div class="arm"></div>
+		</div>
+		<span class="hide" id="animation">+1</span>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="index.js" type="text/javascript" ></script>
+	<script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script>
+	<!-- 通过System.js加载lib-es.js -->
+	<!-- <script src="scripts/lib-es.js" type="text/javascript" ></script> -->
+	<script type="text/javascript">
+		SystemJS.config({
+		  baseURL: '/PraiseThumb/scripts'
+		});
+		// 引入需要的文件
+		// // 文件加载需在服务器上运行
+		SystemJS.import('lib-es.js').then(function(m) {		// 得到lib-es.js文件
+			$.extend({										// 将方法挂载到 jQuery
+				thumb: m.default.Thumb,			// 得到lib-es.js文件的 export default {Thumb} 模块
+			});
+			callBack();
+    });
+
+    function callBack() {
+    	var f = new $.thumb(0, $('#hand'));	// 实例化挂载到jQuery上的方法
+    	f.clickAction();											// 调用真正需要的函数
+    }
+	</script>
+</body>
+</html>
