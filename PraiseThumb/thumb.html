@@ -88,34 +88,33 @@
 			background: linear-gradient(to left, rgba(185, 81, 27, 0.2) 0%, rgba(185, 81, 27, 0) 100%);
 		}
 		.num {
-      display: block !important;
-      -webkit-animation: neon2 1.5s ease-in-out alternate;
-      animation: neon2 1.5s ease-in-out alternate;
-      -webkit-animation-iteration-count: 1;
-      /* Safari 和 Chrome */
-      font-size: 40px;
-      color: #FF1177;
-      position: absolute;
-      right: 10%;
-      top: 10%;
-    }
-    
-    .hide {
-        display: none;
-    }
-    
-    @-webkit-keyframes neon2 {
-      from {
-        opacity: 0;
-        -webkit-transform: translateY(-20px);
-        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
-      }
-      to {
-        opacity: 1;
-        -webkit-transform: translateY(0) text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
-      }
-    }
-		
+	      display: block !important;
+	      -webkit-animation: neon2 1.5s ease-in-out alternate;
+	      animation: neon2 1.5s ease-in-out alternate;
+	      -webkit-animation-iteration-count: 1;
+	      /* Safari 和 Chrome */
+	      font-size: 40px;
+	      color: #FF1177;
+	      position: absolute;
+	      right: 10%;
+	      top: 10%;
+	    }
+	    
+	    .hide {
+	        display: none;
+	    }
+	    
+	    @-webkit-keyframes neon2 {
+	      from {
+	        opacity: 0;
+	        -webkit-transform: translateY(-20px);
+	        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+	      }
+	      to {
+	        opacity: 1;
+	        -webkit-transform: translateY(0) text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+	      }
+	    }
 	</style>
 </head>
 <body>
@@ -131,7 +130,7 @@
 		<span class="hide" id="animation">+1</span>
 	</div>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-	<script src="index.js" type="text/javascript" ></script>
+	<script src="./src/index.js" type="text/javascript" ></script>
 	<script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script>
 	<!-- 通过System.js加载lib-es.js -->
 	<!-- <script src="scripts/lib-es.js" type="text/javascript" ></script> -->
@@ -141,17 +140,17 @@
 		});
 		// 引入需要的文件
 		// // 文件加载需在服务器上运行
-		SystemJS.import('lib-es.js').then(function(m) {		// 得到lib-es.js文件
+		SystemJS.import('./scripts/lib-es.js').then(function(m) {		// 得到lib-es.js文件
 			$.extend({										// 将方法挂载到 jQuery
 				thumb: m.default.Thumb,			// 得到lib-es.js文件的 export default {Thumb} 模块
 			});
 			callBack();
-    });
+    	});
 
-    function callBack() {
-    	var f = new $.thumb(0, $('#hand'));	// 实例化挂载到jQuery上的方法
-    	f.clickAction();											// 调用真正需要的函数
-    }
+	    function callBack() {
+	    	var f = new $.thumb(0, $('#hand'));	// 实例化挂载到jQuery上的方法
+	    	f.clickAction();											// 调用真正需要的函数
+	    }
 	</script>
 </body>
 </html>

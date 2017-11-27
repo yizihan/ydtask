@@ -8,11 +8,11 @@ class PraiseButton {
 			if (this.num < 10) {					// 10次点击以内，继续累加
 				this.element.css('-webkit-filter', 'grayscale(0)');
 				$('#animation').addClass('num');
-				this.num = add(this.num);		// 这里要被单元测试
+				this.num = add(this.num);			// 这里要被单元测试
 				setTimeout(function () {
 					$('#animation').removeClass('num');
 				}, 1000);
-			} else {											// 点击超过10次，归零
+			} else {								// 点击超过10次，归零
 				this.element.css('-webkit-filter', 'grayscale(1)');
 				this.num = 0;
 			}
