@@ -43,6 +43,10 @@ module.exports = {
             }
         }),
         new LiveReloadPlugin({ appendScriptTag: true }),
-        new ExtractTextPlugin('public/css/[name]-[hash:5].css')
+        new ExtractTextPlugin('public/css/[name]-[hash:5].css'),
+        new webpack.optimize.CommonsChunkPlugin({
+        	name: 'common',
+        	filename: 'public/scripts/common/[name]-[hash:5].min.js'
+        })
     ]
 }

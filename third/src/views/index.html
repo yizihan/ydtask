@@ -1,7 +1,7 @@
 {% extends 'layout.html' %} {% block title %}My Page{% endblock %} {% block head %} {% parent %}
 <link href="../css/index.css" rel="stylesheet" type="text/css">
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script>
+<!-- 不再使用System.js <script src="https://cdn.bootcss.com/systemjs/0.20.19/system.js"></script> -->
 <script src="https://cdn.bootcss.com/x-tag/1.5.11/x-tag-core.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="../scripts/indexadd.js" type="text/javascript"></script>
@@ -22,7 +22,8 @@
 </div>
 <!-- <script src="scripts/lib-es.js" type="text/javascript" ></script> -->
 <!-- 通过System.js加载lib-es.js -->
-<script type="text/javascript">
+
+<!-- 不再使用System.js <script type="text/javascript">
 SystemJS.config({
     baseURL: '/scripts'
 });
@@ -39,5 +40,5 @@ function callBack() {
     var f = new $.thumb(0, $('#hand')); // 实例化挂载到jQuery上的方法
     f.clickAction(); // 调用真正需要的函数
 }
-</script>
+</script> -->
 {% endblock %}

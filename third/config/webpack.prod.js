@@ -53,11 +53,16 @@ module.exports = {
                 drop_console: false
             }
         }),
+        // 处理压缩CSS插件
         new OptimezeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano'),
             cssProcessorOptions: { discardComments: { removeAll: true } },
             canPrint: true
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+        	name: 'common',
+        	filename: 'public/scripts/common/[name]-[hash:5].min.js'
         })
     ]
 }
