@@ -16,7 +16,9 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "karma": "^1.7.1",
-    "koa-swig": "^2.2.1"
+    "koa-swig": "^2.2.1",
+    "mocha": "^4.0.1",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
     "co": "^4.6.0",
